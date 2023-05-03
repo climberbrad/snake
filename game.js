@@ -41,7 +41,8 @@ window.requestAnimationFrame(main)
 function scoreGame(gameBoard, currentTime) {
     const totalSeconds = Math.round(currentTime / 1000)
     const snakeLength = getSnakeLength()
-    const rateOfConsumption = Math.round(snakeLength/totalSeconds)
+    const rateOfConsumption = snakeLength/totalSeconds
+    const score = snakeLength * rateOfConsumption.toFixed(2) + totalSeconds
 
     const corner = {x:7, y:5}
 
@@ -51,7 +52,8 @@ function scoreGame(gameBoard, currentTime) {
             `<div style="text-align: center; padding-bottom: 24px;padding-top: 24px"><b>GAME OVER</b></div>` +
             `<div style="margin-left: 24px;padding-bottom: 2px">Snake Length: ${snakeLength}</div>` +
             `<div style="margin-left: 24px;padding-bottom: 2px">Time: ${totalSeconds}</div>` +
-            `<div style="margin-left: 24px;padding-bottom: 2px">Rate: ${rateOfConsumption} per second</div>` +
+            `<div style="margin-left: 24px;padding-bottom: 2px">Rate: ${rateOfConsumption.toFixed(2)} per second</div>` +
+            `<div style="font-size: large;margin-top: 48px;margin-left: 24px"><b>SCORE: </b>${Math.round(score)}</div>` +
         `</div>`
 
     const scoreBoardElement = document.createElement('div')

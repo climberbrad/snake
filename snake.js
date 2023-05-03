@@ -1,6 +1,6 @@
 import {getInputDirection} from "./input.js";
 
-export const SNAKE_SPEED = 10
+export const SNAKE_SPEED = 12
 const snakeBody = [
     {x: 11, y: 11}
 ]
@@ -42,6 +42,10 @@ export function onSnake(position, { ignoreHead = false } = {}) {
 
 export function getSnakeHead() {
     return snakeBody[0]
+}
+
+export function getSnakeLength() {
+    return snakeBody.length
 }
 
 export function snakeIntersection() {
